@@ -13,7 +13,7 @@ RUN apk update \
   libtool \
   boost-dev \
   openssl-dev \
-  libevent-dev
+  libevent-dev \
 
   && wget http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.gz \
   && tar -xzf db-${BERKELEYDB_VERSION}.tar.gz \
