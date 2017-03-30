@@ -35,4 +35,4 @@ VOLUME ["/root/.bitcoin"]
 
 EXPOSE 8333
 
-CMD ["bitcoind"]
+ENTRYPOINT ["bitcoind"]
