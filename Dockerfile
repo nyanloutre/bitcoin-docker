@@ -19,7 +19,7 @@ RUN apk add --no-cache \
   && git checkout tags/${BITCOIN_UNLIMITED_VERSION} \
 
   && ./autogen.sh \
-  && ./configure --disable-wallet \
+  && ./configure --disable-wallet --without-gui --without-miniupnpc \
   && make \
   && make install \
 
