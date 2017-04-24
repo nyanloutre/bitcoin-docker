@@ -17,11 +17,14 @@ RUN apk update \
 
   && wget http://download.oracle.com/berkeley-db/db-${BERKELEYDB_VERSION}.tar.gz \
   && tar -xzf db-${BERKELEYDB_VERSION}.tar.gz \
+  && rm db-${BERKELEYDB_VERSION}.tar.gz \
   && cd db-${BERKELEYDB_VERSION}/build_unix \
   && ../dist/configure --enable-cxx --prefix /usr/local \
   && make install \
 
   && cd /srv/src \
+  && rm -rf db-${BERKELEYDB_VERSION} \
+
   && git clone https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
   && cd BitcoinUnlimited \
   && git checkout tags/${BITCOIN_UNLIMITED_VERSION} \
@@ -29,7 +32,10 @@ RUN apk update \
   && ./autogen.sh \
   && ./configure \
   && make \
-  && make install
+  && make install \
+
+  && cd /srv/src \
+  && rm -rf BitcoinUnlimited
 
 VOLUME ["/root/.bitcoin"]
 
