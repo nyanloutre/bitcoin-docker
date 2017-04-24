@@ -5,8 +5,7 @@ ARG BITCOIN_UNLIMITED_VERSION=1.0.1.3
 
 WORKDIR /srv/src
 
-RUN apk update \
-  && apk add --no-cache \
+RUN apk add --no-cache \
   git build-base \
   automake \
   autoconf \
