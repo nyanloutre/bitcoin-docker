@@ -13,7 +13,7 @@ RUN apk add --no-cache \
   openssl-dev \
   libevent-dev \
 
-  && git clone --branch tags/${BITCOIN_UNLIMITED_VERSION} --depth 1 https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
+  && git clone --branch ${BITCOIN_UNLIMITED_VERSION} --depth 1 https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
   && cd BitcoinUnlimited \
 
   && ./autogen.sh \
