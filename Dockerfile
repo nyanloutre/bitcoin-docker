@@ -13,9 +13,8 @@ RUN apk add --no-cache \
   openssl-dev \
   libevent-dev \
 
-  && git clone https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
+  && git clone --branch tags/${BITCOIN_UNLIMITED_VERSION} --depth 1 https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
   && cd BitcoinUnlimited \
-  && git checkout tags/${BITCOIN_UNLIMITED_VERSION} \
 
   && ./autogen.sh \
   && ./configure --disable-wallet --without-gui --without-miniupnpc \
