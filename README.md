@@ -1,4 +1,4 @@
-# Bitcoin Unlimited Docker
+# Bitcoin Classic Docker
 
 A Bitcoin Unlimited daemon
 
