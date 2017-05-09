@@ -1,6 +1,6 @@
 FROM alpine:3.5
 
-ARG BITCOIN_UNLIMITED_VERSION=v1.0.1.4
+ARG BITCOIN_CLASSIC_VERSION=v1.2.5
 
 WORKDIR /srv/src
 
@@ -13,8 +13,8 @@ RUN apk add --no-cache \
   openssl-dev \
   libevent-dev \
 
-  && git clone --branch ${BITCOIN_UNLIMITED_VERSION} --depth 1 https://github.com/BitcoinUnlimited/BitcoinUnlimited.git \
-  && cd BitcoinUnlimited \
+  && git clone --branch ${BITCOIN_CLASSIC_VERSION} --depth 1 https://github.com/bitcoinclassic/bitcoinclassic.git \
+  && cd bitcoinclassic \
 
   && ./autogen.sh \
   && ./configure --disable-wallet --without-gui --without-miniupnpc \
@@ -22,7 +22,7 @@ RUN apk add --no-cache \
   && make install \
 
   && cd /srv/src \
-  && rm -rf BitcoinUnlimited
+  && rm -rf bitcoinclassic
 
 VOLUME ["/root/.bitcoin"]
 
